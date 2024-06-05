@@ -2,5 +2,92 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: #333333;
+    font-family: Verdana, sans-serif;
+
 }
+
+header{
+    width: 100%;
+    margin-left: 10px;
+    padding: 5px 5px 5px 15px; /* Adjusted padding */
+    display: flex;
+    justify-content: start;
+    background-color: #191414;
+    color: white; 
+}
+
+footer {
+    width: 100%;
+    padding: 15px 0; /* Adds padding above and below the content inside the footer */
+    background-color: #191414;
+}
+
+.playlist-cards {
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 7%;
+}
+
+.playlist-card {
+    margin: 10px;
+    padding: 10px;
+    background-color: #1DB954;
+    border-radius: 7%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
+    cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Initial subtle shadow */
+}
+
+.playlist-card:hover {
+    transform: scale(1.05); /* Scales up the card slightly */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Adds a more pronounced shadow */
+}
+
+.playlist-card img{
+    border-radius: 7%;
+}
+
+.playlist-card h3,
+.playlist-card p {
+    margin-top: 3px; /* Reduces the space above the element */
+    margin-bottom: 3px; /* Reduces the space below the element */
+}
+
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+ }
+ .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+ }
+ .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+ }
+ .close:hover,
+ .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+ }
