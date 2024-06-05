@@ -1,6 +1,6 @@
 // JavaScript for Opening and Closing the Modal
-var modal = document.getElementById("festivalModal");
-var span = document.getElementsByClassName("close")[0];
+var modal = document.getElementById("music-modal");
+var close_modal = document.getElementsByClassName("modal-banner-close")[0];
 
 function openModal(festival) {
    document.getElementById('festivalName').innerText = festival.name;
@@ -11,11 +11,16 @@ function openModal(festival) {
    modal.style.display = "block";
 }
 
-span.onclick = function() {
+// closes model by clicking x
+close_modal.onclick = function() {
    modal.style.display = "none";
 }
+ // supposed to close model when click outside , need to implament
 window.onclick = function(event) {
-   if (event.target == modal) {
+   if (event.target==  modal) {
       modal.style.display = "none";
    }
+}
+
+function createPlaylist(playlists) {
 }

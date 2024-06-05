@@ -19,19 +19,20 @@ header{
 
 footer {
     width: 100%;
-    padding: 15px 0; /* Adds padding above and below the content inside the footer */
+    padding: 15px 0;
     background-color: #191414;
 }
 
 .playlist-cards {
-    margin: 10px;
-    padding: 5px;
+    margin: 15px;
+    padding: 15px;
     display: flex;
-    justify-content: space-between;
-    justify-content: space-around;
-    align-items: center;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     border-radius: 7%;
+    gap: 10%;
+    row-gap: 10%;
 }
 
 .playlist-card {
@@ -59,10 +60,16 @@ footer {
     margin-bottom: 3px; /* Reduces the space below the element */
 }
 
-
+.like-count {
+    display: flex;
+    justify-content: start;
+}
 
 .modal {
-    display: none; /* Hidden by default */
+    margin: 5px;
+    padding: 5px;
+    display: block; /* Hidden by default */
+    visibility: visible;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -78,6 +85,7 @@ footer {
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 7%;
  }
  .close {
     color: #aaa;
@@ -91,3 +99,70 @@ footer {
     text-decoration: none;
     cursor: pointer;
  }
+
+ .modal-banner {
+    display: flex;
+    justify-content: stretch;
+    border-radius: 7%;
+ }
+
+ .modal-banner-titles {
+    margin-top: 50px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 25px;
+ }
+
+ .modal-banner-img {
+    border-radius: 7%;
+    margin: 10px;
+    padding: 10px;
+ }
+
+ .modal-banner-close {
+    display: flex;
+    justify-content: end;
+ }
+
+ .modal-songs {
+    margin: 10px;
+    padding: 10px;
+ }
+
+ .modal-song {
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: stretch;
+    justify-content: space-between;
+    border: 0.7px solid black; /* Sets a black border with a thickness of 2 pixels */
+    border-radius: 10px;
+}
+
+ .modal-song-left {
+    display: flex;
+    justify-content: start;
+ }
+
+ .modal-song-left-img {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+ }
+
+ .modal-song-right-text {
+    margin: 10px;
+    padding: 10px;
+    line-height: 0.7;
+ }
+
+ .modal-song-right {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+ }
+
+
