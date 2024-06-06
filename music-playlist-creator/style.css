@@ -70,10 +70,15 @@ footer {
     justify-content: start;
 }
 
+.like-count img:hover {
+    cursor: pointer;
+    color: red;
+}
+
 .modal {
     margin: 5px;
     padding: 5px;
-    display: block; /* Hidden by default */
+    display: flex; /* Hidden by default */
     visibility: visible;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -91,6 +96,7 @@ footer {
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
     border-radius: 7%;
+    
  }
  .close {
     color: #aaa;
@@ -168,6 +174,26 @@ footer {
     align-items: center;
     margin: 10px;
     padding: 10px;
+ }
+
+
+ .shuffle-btn-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+ }
+
+ .shuffle-btn {
+    padding: 20px;
+    margin: 10px;
+    border-radius: 7%;
+    background-color: #191414;
+    color: #fefefe;
+    cursor: pointer;
+ }
+
+ .shuffle-btn:hover {
+    background-color: #90EE90;
  }
 
 

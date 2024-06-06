@@ -23,13 +23,37 @@ function createPlaylistCards(playlists) {
 
         container.appendChild(newPlaylistCard);
 
-        newPlaylistCard.addEventListener('click', () => {
-            console.log("Playlist card clicked");  // Test if this logs when a card is clicked
-            updateSongBanner(playlist);
-            updateSongs(playlist);
+        // like feature
+        let liked = false;
+
+        newPlaylistCard.addEventListener('click', (event) => {
+            if(event.target.closest('.like-count img')) {
+                if(!liked){
+                    playlist.likeCount += 1;
+                    //likeIcon.src = 'site-unit2-project1-music-playlist-explorer-starter/music-playlist-creator/assets/img/red-heart.png'; 
+                } else if (playlist.likeCount > 0) {
+                    playlist.likeCount -= 1;
+                    //likeIcon.src = 'site-unit2-project1-music-playlist-explorer-starter/music-playlist-creator/assets/img/favicon.png';
+                }             
+                const likeDisplay = event.target.parentNode.querySelector('p');
+                likeDisplay.textContent = playlist.likeCount;
+                liked = !liked;
+            } else {
+                updateSongBanner(playlist);
+                updateSongs(playlist);
+            }
         });
 
+
+        // shuffle feature
+        const shuffleButton = document.querySelector(".shuffle-btn");
+
+        shuffleButton.addEventListener('click', () => {
+            playlist.songs.sort(() => Math.random() - 0.5);
+            updateSongs(playlist);
+        });
     }
+
 
 }
 
