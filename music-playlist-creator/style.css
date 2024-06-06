@@ -212,10 +212,61 @@ footer {
     text-align: center;
  }
 
- #feature-img {
+ #featured-img {
     border-radius: 7%;
  }
 
  .featured-container-left img{
     width: 500px;
+ }
+
+ .featured-container-right {
+    display: flex;
+    justify-content: stretch;
+ }
+
+
+
+
+ .featured-songs {
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+ }
+
+ .featured-song {
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: stretch;
+    justify-content: space-between;
+    border: 0.7px solid black; /* Sets a black border with a thickness of 2 pixels */
+    border-radius: 10px;
+}
+
+ .featured-song-left {
+    display: flex;
+    justify-content: start;
+ }
+
+ .featured-song-left-img {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+ }
+
+ .featured-song-right-text {
+    margin: 10px;
+    padding: 10px;
+    line-height: 0.7;
+ }
+
+ .featured-song-right {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
  }
