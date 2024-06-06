@@ -133,9 +133,10 @@ function createPlaylistCards(playlists) {
         newPlaylistCard.appendChild(creator);
         newPlaylistCard.appendChild(likeCountDiv);
 
+        // clcikc event listener to open model
+        newPlaylistCard.addEventListener('click', () => openModal(playlist));
+
         container.appendChild(newPlaylistCard);
-
-
 
     }
 }
