@@ -56,6 +56,11 @@ footer {
 
 .playlist-card h3,
 .playlist-card p {
+    /* display: flex;
+    flex-wrap: wrap;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis; */
     margin-top: 3px; /* Reduces the space above the element */
     margin-bottom: 3px; /* Reduces the space below the element */
 }

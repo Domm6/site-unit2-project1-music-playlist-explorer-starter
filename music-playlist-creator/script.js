@@ -2,13 +2,59 @@
 var modal = document.getElementById("music-modal");
 var close_modal = document.getElementsByClassName("modal-banner-close")[0];
 
-function openModal(festival) {
-   document.getElementById('festivalName').innerText = festival.name;
-   document.getElementById('festivalImage').src = festival.imageUrl;
-   document.getElementById('festivalDates').innerText = `Dates: ${festival.dates}`;
-   document.getElementById('festivalLocation').innerText = `Location: ${festival.location}`;
-   document.getElementById('artistLineup').innerHTML = `<strong>Lineup:</strong> ${festival.lineup.join(', ')}`;
-   modal.style.display = "block";
+function openModal(playlist) {
+    // populate modal with playlist data
+    const modalImg = modal.querySelector('.modal-banner-img img');
+    const modalTitle =  modal.querySelector('.modal-banner-titles h1');
+    const modalCreatorName =  modal.querySelector('.modal-banner-titles h3');
+    const modalSongs =  modal.querySelector('.modal-songs');
+
+    modalImg.src = playlist.playlistArt;
+    modalTitle = textContent = playlist.playlist_name;
+    modalCreatorName = playlist.playlist_creator
+
+    // clear previous songs
+    modalSongs.innerHTML = '';
+
+    // add new songs
+    playlist.songs.forEach( song => {
+        const songDiv = document.createElement('div');
+        songDiv.classList.add('modal-song');
+
+        const songLeft = document.createElement('div');
+        songLeft.classList.add('modal-song-left');
+
+        const songLeftImgDiv = document.createAttribute('div');
+        songLeftImgDiv.classList.add('modal-song-left-img');
+
+        const songLeftImg = document.createElement('img');
+        songLeftImg.src = song.cover_art;
+        songLeftImg.width = 30;
+
+        songLeftImgDiv.appendChild(songLeftImg);
+
+        const modalSongRightText = document.createElement('div');
+        modalSongRightText.classList.add('modal-song-right-text');
+        const songTitle = document.createElement('h3');
+        songTitle.textContent = song.title;
+        const artistName = document.createElement('p');
+        artistName.textContent = song.artist;
+        const albumName = document.createElement('p');
+        albumName.textContent = song.album;
+
+        modalSongRightText.appendChild(songTitle);
+        modalSongRightText.appendChild(artistName);
+        modalSongRightText.appendChild(albumName);
+
+        songLeft.appendChild(songLeftImgDiv);
+        songLeft.appendChild(modalSongRightText);
+        
+
+
+    });
+
+    // display modal
+    modal.style.display = block;
 }
 
 // closes model by clicking x
@@ -25,12 +71,6 @@ window.onclick = function(event) {
 function createPlaylistCards(playlists) {
 
     const container = document.querySelector('.playlist-cards');
-
-    // let playlistName;
-    // let playlistCreator;
-    // let playlistArt;
-    // let likeCount;
-
 
     // generaet empty 
     // iterate through each playlist
@@ -64,12 +104,11 @@ function createPlaylistCards(playlists) {
         likeCountDiv.classList.add('like-count');
 
         const likeIcon = document.createElement('img');
-        likeIcon.src = '/assets/img/favicon.png';
-        likeIcon.alt = 'like icon';
+        likeIcon.src = 'site-unit2-project1-music-playlist-explorer-starter/music-playlist-creator/assets/img/favicon.png';
         likeIcon.width = 25;
 
         const likeCountP = document.createElement('p');
-        likeCount.textContent = likeCount;
+        likeCountP.textContent = likeCount;
 
         // add like count and icon to div
         likeCountDiv.appendChild(likeIcon);
@@ -83,8 +122,8 @@ function createPlaylistCards(playlists) {
 
         container.appendChild(newPlaylistCard);
 
-
     }
 }
+
 
 createPlaylistCards(data.playlists);
