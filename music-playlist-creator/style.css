@@ -196,4 +196,26 @@ footer {
     background-color: #90EE90;
  }
 
+ /* ------------------------------ FEATURE PAGE -------------------------------- */
 
+.featured-container {
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+}
+
+ .featured-container-left {
+    margin: 10px;
+    margin-right: 50px;
+    padding: 10px;
+    font-size: 25px;
+    text-align: center;
+ }
+
+ #feature-img {
+    border-radius: 7%;
+ }
+
+ .featured-container-left img{
+    width: 500px;
+ }
