@@ -22,5 +22,29 @@ window.onclick = function(event) {
    }
 }
 
-function createPlaylist(playlists) {
+function createPlaylistCards(playlists) {
+    let playlistName;
+    let playlistCreator;
+    let playlistArt;
+    let likeCount;
+
+
+    // generaet empty 
+    // iterate through each playlist
+    // create a new elemeennt which 
+    // add evenet listners to add songs
+    // last line append to container
+
+    // gets all attributes of playlist
+    for(let playlist of playlists) {
+        playlistName = playlist['playlist_name'];
+        playlistCreator = playlist["playlist_creator"];
+        playlistArt = playlist["playlist_art"];
+        likeCount = playlist["likeCount"];
+    }
+
+    const newPlaylistCard = document.createElement('playlist-card'); // create the playlist card
+
 }
+
+createPlaylistCards(data.playlists);
