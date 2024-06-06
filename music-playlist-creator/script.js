@@ -23,10 +23,13 @@ window.onclick = function(event) {
 }
 
 function createPlaylistCards(playlists) {
-    let playlistName;
-    let playlistCreator;
-    let playlistArt;
-    let likeCount;
+
+    const container = document.querySelector('.playlist-cards');
+
+    // let playlistName;
+    // let playlistCreator;
+    // let playlistArt;
+    // let likeCount;
 
 
     // generaet empty 
@@ -37,14 +40,51 @@ function createPlaylistCards(playlists) {
 
     // gets all attributes of playlist
     for(let playlist of playlists) {
+
         playlistName = playlist['playlist_name'];
         playlistCreator = playlist["playlist_creator"];
         playlistArt = playlist["playlist_art"];
         likeCount = playlist["likeCount"];
+
+        const newPlaylistCard = document.createElement('div'); // create the playlist card
+        newPlaylistCard.classList.add('playlist-card');
+
+        const img = document.createElement('img');
+        img.src = playlist.playlist_art;
+        img.alt = playlist.playlist_name;
+        img.width = 200;
+
+        const h3 = document.createElement('h3');
+        h3.textContent = playlist.playlist_name;
+
+        const creator = document.createElement('p');
+        creator.textContent = playlist.playlist_creator;
+
+        const likeCountDiv = document.createElement('div');
+        likeCountDiv.classList.add('like-count');
+
+        const likeIcon = document.createElement('img');
+        likeIcon.src = '/assets/img/favicon.png';
+        likeIcon.alt = 'like icon';
+        likeIcon.width = 25;
+
+        const likeCountP = document.createElement('p');
+        likeCount.textContent = likeCount;
+
+        // add like count and icon to div
+        likeCountDiv.appendChild(likeIcon);
+        likeCountDiv.appendChild(likeCountP);
+
+        // append all elements to the card
+        newPlaylistCard.appendChild(img);
+        newPlaylistCard.appendChild(h3);
+        newPlaylistCard.appendChild(creator);
+        newPlaylistCard.appendChild(likeCountDiv);
+
+        container.appendChild(newPlaylistCard);
+
+
     }
-
-    const newPlaylistCard = document.createElement('playlist-card'); // create the playlist card
-
 }
 
 createPlaylistCards(data.playlists);
