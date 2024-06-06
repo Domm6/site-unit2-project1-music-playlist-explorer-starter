@@ -1,6 +1,7 @@
 // JavaScript for Opening and Closing the Modal
 var modal = document.getElementById("music-modal");
 var close_modal = document.getElementsByClassName("modal-banner-close")[0];
+var display_songs = doc
 
 function openModal(playlist) {
     // populate modal with playlist data
@@ -10,8 +11,8 @@ function openModal(playlist) {
     const modalSongs =  modal.querySelector('.modal-songs');
 
     modalImg.src = playlist.playlistArt;
-    modalTitle = textContent = playlist.playlist_name;
-    modalCreatorName = playlist.playlist_creator
+    modalTitle.textContent = playlist.playlist_name;
+    modalCreatorName.textContent = playlist.playlist_creator
 
     // clear previous songs
     modalSongs.innerHTML = '';
@@ -24,7 +25,7 @@ function openModal(playlist) {
         const songLeft = document.createElement('div');
         songLeft.classList.add('modal-song-left');
 
-        const songLeftImgDiv = document.createAttribute('div');
+        const songLeftImgDiv = document.createElement('div');
         songLeftImgDiv.classList.add('modal-song-left-img');
 
         const songLeftImg = document.createElement('img');
@@ -67,7 +68,7 @@ function openModal(playlist) {
     });
 
     // display modal
-    modal.style.display = block;
+    modal.style.display = "block";
 }
 
 // closes model by clicking x
@@ -80,6 +81,8 @@ window.onclick = function(event) {
       modal.style.display = "none";
    }
 }
+
+display_songs.onclick = 
 
 function createPlaylistCards(playlists) {
 
@@ -133,7 +136,7 @@ function createPlaylistCards(playlists) {
         newPlaylistCard.appendChild(creator);
         newPlaylistCard.appendChild(likeCountDiv);
 
-        // clcikc event listener to open model
+        // click event listener to open model
         newPlaylistCard.addEventListener('click', () => openModal(playlist));
 
         container.appendChild(newPlaylistCard);
