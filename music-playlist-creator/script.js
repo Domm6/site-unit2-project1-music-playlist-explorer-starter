@@ -48,6 +48,19 @@ function openModal(playlist) {
 
         songLeft.appendChild(songLeftImgDiv);
         songLeft.appendChild(modalSongRightText);
+
+        const songRightDiv = document.createElement('div');
+        songRightDiv.classList.add('modal-song-right');
+
+        const songDuration = document.createElement('p');
+        songDuration.textContent = song.duration;
+
+        songRightDiv.appendChild(songDuration);
+
+        songDiv.appendChild(songLeftDiv);
+        songDiv.appendChild(songRightDiv);
+
+        modalSongs.appendChild(songDiv);
         
 
 
@@ -121,6 +134,8 @@ function createPlaylistCards(playlists) {
         newPlaylistCard.appendChild(likeCountDiv);
 
         container.appendChild(newPlaylistCard);
+
+
 
     }
 }
