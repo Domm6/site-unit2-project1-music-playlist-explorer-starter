@@ -2,7 +2,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #333333;
+    background-color: #F5F5F5;
     font-family: Verdana, sans-serif;
 
 
@@ -13,14 +13,33 @@ header{
     padding: 40px;
     display: flex;
     justify-content: center;
-    background-color: #191414;
+    align-items: center;
+    flex-direction: column;
+    background-color: #333333;
     color: white; 
+    border-radius: 8px;
+    row-gap: 60px;
+}
+
+.header-top {
+   display: flex;
+}
+
+/* header h1 {
+   margin-right: 70px;
+} */
+
+header button {
+   justify-content: end;
+   margin-left: 100px;
+   height: 50px;
+   width: 100px;
 }
 
 footer {
     width: 100%;
     padding: 50px 0;
-    background-color: #191414;
+    background-color: #333333;
 }
 
 .playlist-cards {
@@ -39,11 +58,13 @@ footer {
 .playlist-card {
     margin: 10px;
     padding: 10px;
-    background-color: #1DB954;
+    background-color: #FFFFFF;
     border-radius: 7%;
+    color: #1A1A1A;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
     cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Initial subtle shadow */
+    border: 0.7px solid black; /* Sets a black border with a thickness of 2 pixels */
     flex-wrap: wrap;
     text-wrap: wrap;
 }
@@ -61,6 +82,7 @@ footer {
 .playlist-card p {
     margin-top: 3px; /* Reduces the space above the element */
     margin-bottom: 3px; /* Reduces the space below the element */
+    font-size: 12px;
 }
 
 .playlist-cards h3,
@@ -89,8 +111,6 @@ footer {
 }
 
 .modal {
-    margin: 5px;
-    padding: 5px;
     display: flex; /* Hidden by default */
     visibility: visible;
     position: fixed; /* Stay in place */
@@ -103,13 +123,14 @@ footer {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
  }
  .modal-content {
-    background-color: #AFE1AF;
+    background-color: #F5F5F5;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 60%; /* Could be more or less, depending on screen size */
     border-radius: 8px;
  }
+
  .close {
     color: #aaa;
     float: right;
@@ -147,7 +168,7 @@ footer {
  }
 
  .modal-banner-close {
-    justify-content: end;
+   margin-right: 0%;
  }
 
  .modal-songs {
@@ -202,8 +223,8 @@ footer {
     padding: 20px;
     margin: 10px;
     border-radius: 7%;
-    background-color: #191414;
-    color: #fefefe;
+    background-color: #333333;
+    color: #F5F5F5;
     cursor: pointer;
  }
 
@@ -212,12 +233,32 @@ footer {
  }
 
 
- form {
+ #playlist-form {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 8px;
+    width: 50%;
+    justify-content: center;
+ }
+
+
+ .footer-right {
+   color: 1A1A1A;
+   padding: 10px;
+   margin-right: 15%;
+   display: flex;
+   justify-content: end;
+   font-size: 10px;
+   color: white;
  }
 
  /* ------------------------------ FEATURE PAGE -------------------------------- */
+
+.feature-header {
+   display: flex;
+   align-items: center;
+}
 
 .featured-container {
     margin: 10px;
@@ -230,7 +271,7 @@ footer {
 }
 
  .featured-container-left {
-    background-color: #1DB954;
+    background-color: #FFFFFF;
     height: 70%;
     padding: 25px;
     border-radius: 8px;
@@ -238,14 +279,20 @@ footer {
     margin-right: 50px;
     font-size: 25px;
     text-align: center;
+    cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Initial subtle shadow */
+    border: 0.7px solid black; /* Sets a black border with a thickness of 2 pixels */
  }
 
  #featured-img {
     border-radius: 7%;
+    
  }
 
  .featured-container-left img{
     width: 500px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Initial subtle shadow */
+    border: 0.7px solid black; /* Sets a black border with a thickness of 2 pixels */
  }
 
  .featured-container-right {
@@ -264,18 +311,30 @@ footer {
  .featured-songs h1{
     display: flex;
     justify-content: center;
+    align-items: center;
     color: #fefefe;
+    background-color: #333333;
+    border-radius: 8px;
+    height: 80px;
  }
 
  .featured-song {
-    background-color: #1DB954;
+    background-color: #FFFFFF;
     margin: 5px;
     padding: 5px;
     display: flex;
     justify-content: stretch;
     justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
+    cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Initial subtle shadow */
     border: 0.7px solid black; /* Sets a black border with a thickness of 2 pixels */
     border-radius: 10px;
+}
+
+.featured-song:hover {
+   transform: scale(1.05); /* Scales up the card slightly */
+   box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Adds a more pronounced shadow */
 }
 
  .featured-song-left {

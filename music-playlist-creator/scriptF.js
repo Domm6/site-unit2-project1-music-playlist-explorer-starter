@@ -28,7 +28,7 @@ function updateSongs(playlist) {
             </div>
         </div>
         <div class="featured-song-right">
-            <p>0:00</p>
+            <p>${song.duration}</p>
         </div>`;
 
         songsContainer.appendChild(songDiv);
@@ -43,7 +43,7 @@ function updateFeaturedPlaylist(playlist) {
     containerLeft.innerHTML = `
     <img src="${playlist.playlist_art}" alt="" id="featured-img">
     <h1>${playlist.playlist_name}</h1>
-    <h1>${playlist.playlist_creator}</h1>`;
+    <h3>${playlist.playlist_creator}</h3>`;
 
 }
 
