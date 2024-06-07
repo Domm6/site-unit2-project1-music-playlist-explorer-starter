@@ -30,10 +30,10 @@ function createPlaylistCards(playlists) {
             if(event.target.closest('.like-count img')) {
                 if(!liked){
                     playlist.likeCount += 1;
-                    //likeIcon.src = 'site-unit2-project1-music-playlist-explorer-starter/music-playlist-creator/assets/img/red-heart.png'; 
+                    //likeCount.src = 'site-unit2-project1-music-playlist-explorer-starter/music-playlist-creator/assets/img/red-heart.png'; 
                 } else if (playlist.likeCount > 0) {
                     playlist.likeCount -= 1;
-                    //likeIcon.src = 'site-unit2-project1-music-playlist-explorer-starter/music-playlist-creator/assets/img/favicon.png';
+                    //likeCount.src = 'site-unit2-project1-music-playlist-explorer-starter/music-playlist-creator/assets/img/favicon.png';
                 }             
                 const likeDisplay = event.target.parentNode.querySelector('p');
                 likeDisplay.textContent = playlist.likeCount;
@@ -87,14 +87,19 @@ function updateSongs(playlist) {
         songDiv.classList.add('modal-songs');
 
         songDiv.innerHTML = `
+        <div class="modal-song">
         <div class="modal-song-left">
-        <div class="modal-song-left-img">
-            <img src="${song.cover_art}" alt="" width="110px">
+            <div class="modal-song-left-img">
+                <img src="${song.cover_art}" alt="" width="110px">
+            </div>
+            <div class="modal-song-right-text">
+                <h3>${song.title}</h3>
+                <p>${song.artist}</p>
+                <p>${song.album}</p>
+            </div>
         </div>
-        <div class="modal-song-right-text">
-            <h3>${song.title}</h3>
-            <p>${song.artist}</p>
-            <p>${song.album}</p>
+        <div class="modal-song-right">
+            <p>0:00</p>
         </div>`;
 
         songsContainer.appendChild(songDiv);
@@ -102,6 +107,11 @@ function updateSongs(playlist) {
 
     modal.style.display = "block";
 
+}
+
+// function I am trying to implament
+function addNewPlaylist(playlist) {
+    
 }
 
 
@@ -116,5 +126,6 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 };
+
 
 createPlaylistCards(data.playlists);

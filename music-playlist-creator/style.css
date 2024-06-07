@@ -5,21 +5,21 @@ body {
     background-color: #333333;
     font-family: Verdana, sans-serif;
 
+
 }
 
 header{
     width: 100%;
-    margin-left: 10px;
-    padding: 5px 5px 5px 15px; /* Adjusted padding */
+    padding: 40px;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     background-color: #191414;
     color: white; 
 }
 
 footer {
     width: 100%;
-    padding: 15px 0;
+    padding: 50px 0;
     background-color: #191414;
 }
 
@@ -30,10 +30,11 @@ footer {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    border-radius: 7%;
+    border-radius: 8px;
     gap: 10%;
-    row-gap: 10%;
+    row-gap: 50px;
 }
+
 
 .playlist-card {
     margin: 10px;
@@ -43,6 +44,8 @@ footer {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
     cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Initial subtle shadow */
+    flex-wrap: wrap;
+    text-wrap: wrap;
 }
 
 .playlist-card:hover {
@@ -56,11 +59,16 @@ footer {
 
 .playlist-card h3,
 .playlist-card p {
-    /* display: flex;
+    margin-top: 3px; /* Reduces the space above the element */
+    margin-bottom: 3px; /* Reduces the space below the element */
+}
+
+.playlist-cards h3,
+.playlist-cards p {
     flex-wrap: wrap;
+    display: flex;
+    text-wrap: normal;
     white-space: normal;
-    overflow: hidden;
-    text-overflow: ellipsis; */
     margin-top: 3px; /* Reduces the space above the element */
     margin-bottom: 3px; /* Reduces the space below the element */
 }
@@ -90,13 +98,12 @@ footer {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
  }
  .modal-content {
-    background-color: #fefefe;
+    background-color: #AFE1AF;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
-    border-radius: 7%;
-    
+    border-radius: 8px;
  }
  .close {
     color: #aaa;
@@ -117,6 +124,10 @@ footer {
     border-radius: 7%;
  }
 
+ .modal img {
+    border-radius: 8px;
+ }
+
  .modal-banner-titles {
     margin-top: 50px;
     margin: 10px;
@@ -131,7 +142,6 @@ footer {
  }
 
  .modal-banner-close {
-    display: flex;
     justify-content: end;
  }
 
@@ -170,7 +180,7 @@ footer {
 
  .modal-song-right {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     margin: 10px;
     padding: 10px;
@@ -204,10 +214,17 @@ footer {
     display: flex;
 }
 
+.featured-container img {
+    border-radius: 8px;
+}
+
  .featured-container-left {
+    background-color: #1DB954;
+    height: 70%;
+    padding: 25px;
+    border-radius: 8px;
     margin: 10px;
     margin-right: 50px;
-    padding: 10px;
     font-size: 25px;
     text-align: center;
  }
@@ -225,17 +242,22 @@ footer {
     justify-content: stretch;
  }
 
-
-
-
  .featured-songs {
+    /* background-color: #1DB954; */
     margin: 10px;
     padding: 10px;
     display: flex;
     flex-direction: column;
  }
 
+ .featured-songs h1{
+    display: flex;
+    justify-content: center;
+    color: #fefefe;
+ }
+
  .featured-song {
+    background-color: #1DB954;
     margin: 5px;
     padding: 5px;
     display: flex;

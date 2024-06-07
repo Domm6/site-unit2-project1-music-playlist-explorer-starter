@@ -16,14 +16,19 @@ function updateSongs(playlist) {
         songDiv.classList.add('featured-songs');
 
         songDiv.innerHTML = `
+        <div class="featured-song">
         <div class="featured-song-left">
-        <div class="featured-song-left-img">
-            <img src="${song.cover_art}" alt="" width="110px">
+            <div class="featured-song-left-img">
+                <img src="${song.cover_art}" alt="" width="110px">
+            </div>
+            <div class="featured-song-right-text">
+                <h3>${song.title}</h3>
+                <p>${song.artist}</p>
+                <p>${song.album}</p>
+            </div>
         </div>
-        <div class="featured-song-right-text">
-            <h3>${song.title}</h3>
-            <p>${song.artist}</p>
-            <p>${song.album}</p>
+        <div class="featured-song-right">
+            <p>0:00</p>
         </div>`;
 
         songsContainer.appendChild(songDiv);
