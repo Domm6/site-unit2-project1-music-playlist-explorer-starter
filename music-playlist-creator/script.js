@@ -16,14 +16,19 @@ function createPlaylistCards(playlists) {
         <img src="${playlist.playlist_art}" alt="" width="200">
         <h3>${playlist.playlist_name}</h3>
         <p>${playlist.playlist_creator}</p>
-        <div class="like-count">
-            <img src="assets/img/favicon.png" alt="" width="25">
-            <p>${playlist.likeCount}</p>
+        <div class="bottom-actions">
+            <div class="like-count">
+                <img src="assets/img/favicon.png" alt="" width="25">
+                <p>${playlist.likeCount}</p>
+            </div>
+            <div class="trash">
+                <img src="assets/img/trash.png" alt="" width="25">
+            </div>
         </div>`;
 
         container.appendChild(newPlaylistCard);
 
-        // like feature
+        // like and delete feature
         let liked = false;
 
         newPlaylistCard.addEventListener('click', (event) => {
@@ -38,6 +43,15 @@ function createPlaylistCards(playlists) {
                 const likeDisplay = event.target.parentNode.querySelector('p');
                 likeDisplay.textContent = playlist.likeCount;
                 liked = !liked;
+            } else if(event.target.closest('.trash img')) {
+                const trashIcon = event.target.closest('.trash');
+                const playlistCard = trashIcon.closest('.playlist-card');
+                playlistCard.remove();
+
+                const playIndex = playlists.findIndex(p => playlist_name === playlist.playlist_name);
+                playlists.splice(playlistIndex, 1);
+
+                createPlaylistCards(playlists);
             } else {
                 updateSongBanner(playlist);
                 updateSongs(playlist);
@@ -100,7 +114,8 @@ function updateSongs(playlist) {
         </div>
         <div class="modal-song-right">
             <p>0:00</p>
-        </div>`;
+        </div>
+        `;
 
         songsContainer.appendChild(songDiv);
     }
@@ -108,6 +123,8 @@ function updateSongs(playlist) {
     modal.style.display = "block";
 
 }
+
+// delete playlist
 
 // function I am trying to implament
 function addNewPlaylist(playlist) {

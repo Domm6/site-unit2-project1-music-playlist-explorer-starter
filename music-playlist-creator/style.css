@@ -73,6 +73,11 @@ footer {
     margin-bottom: 3px; /* Reduces the space below the element */
 }
 
+.bottom-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
 .like-count {
     display: flex;
     justify-content: start;
@@ -204,6 +209,12 @@ footer {
 
  .shuffle-btn:hover {
     background-color: #90EE90;
+ }
+
+
+ form {
+    display: flex;
+    flex-wrap: wrap;
  }
 
  /* ------------------------------ FEATURE PAGE -------------------------------- */
