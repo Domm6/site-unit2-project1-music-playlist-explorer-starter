@@ -69,27 +69,32 @@ function createPlaylistCards(playlists) {
     }  
     searchPlaylist(playlists);
 
+
+
+
+
     
     // event listendfer for creat playlist button to create playlist
     const form = document.querySelector("#playlist-form");
 
     //add playlist card
     form.addEventListener('submit', (event) => {
-        // get form info
+        // dont refresh
         event.preventDefault();
 
+        // get all form info
         const formInfo = getFormInfo();
-        console.log(formInfo)
         
+        // create new playlist card
         const newCard = generatePlaylistCard(formInfo);
-        console.log(newCard)
 
+        // add card to container
         container.appendChild(newCard);
 
         // like and delete feature
         let liked = false;
 
-        // allow open modal on new playlist cards
+        // opens modal for new play list cards added
         newCard.addEventListener('click', (event) => {
             if(event.target.closest('.like-count img')) {
                 const likeImage = event.target.parentNode.querySelector('img');
@@ -118,9 +123,25 @@ function createPlaylistCards(playlists) {
             }
         });
 
-        editModal.style.display = 'hidden';
+        // shuffle featuer for new playlists
+        const shuffleButton = document.querySelector(".shuffle-btn");
+        if (shuffleButton) {
+            shuffleButton.addEventListener('click', () => {
+                formInfo.songs.sort(() => Math.random() - 0.5);
+                updateSongs(formInfo);
+            });
+        }
+
+        // close modal
+        editModal.style.display = 'none';
+
+        // reset entries
+        form.reset();
+
 
     });
+
+
 
 
     
@@ -182,6 +203,9 @@ function openEditModal() {
 
 }
 
+function updateEditModalSongs(songs) {
+
+}
 
 
 function updateSongBanner (playlist) {
@@ -246,42 +270,38 @@ function updateSongs(playlist) {
 
 // get info from form
 function getFormInfo () {
-            // add new playlist
-            const form = document.querySelector('#playlist-form');
 
-                const playlistName = document.querySelector('#playlist-name').value;
-                const playlistCreator = document.querySelector('#form-creator').value;
-    
-                const playlist = {
-                    
-                    "playlistID": 0,
-                    "playlist_name": playlistName,
-                    "playlist_creator": playlistCreator,
-                    "playlist_art": "https://picsum.photos/id/36/200",
-                    "likeCount": 0,
-                    songs: []
-                }
-    
-                // create songs and push to array
-                const songInputs = document.querySelectorAll('form-song');
-    
-                for (let attribute of songInputs) {
-                    const songTitle = attribute.querySelector('#form-song-title');
-                    const songArtistName = attribute.querySelector('#form-song-artist-name');
-                    const songDuration = attribute.querySelector('#form-song-duration');
-    
-                    const song = {
-                        "songID": 0,
-                        "title": songTitle,
-                        "artist": songArtistName,
-                        "duration": songDuration 
-                    };
-    
-                    playlist.songs.push(song);
-                
-                }
+    const playlistName = document.querySelector('#playlist-name').value;
+    const playlistCreator = document.querySelector('#form-creator').value;
 
-                return playlist;
+    const playlist = {
+        "playlistID": 0,
+        "playlist_name": playlistName,
+        "playlist_creator": playlistCreator,
+        "playlist_art": "https://picsum.photos/id/36/200",
+        "likeCount": 0,
+        songs: []
+    };
+
+    // Create songs and push to array
+    const songInputs = document.querySelectorAll('.form-song');
+
+    songInputs.forEach(attribute => {
+        const songTitle = attribute.querySelector('#form-song-title').value;
+        const songArtistName = attribute.querySelector('#form-song-artist-name').value;
+        const songDuration = attribute.querySelector('#form-song-duration').value;
+
+        const song = {
+            "songID": 0,
+            "title": songTitle,
+            "artist": songArtistName,
+            "duration": songDuration
+        };
+
+        playlist.songs.push(song);
+    });
+
+    return playlist;
                     
 }
 
