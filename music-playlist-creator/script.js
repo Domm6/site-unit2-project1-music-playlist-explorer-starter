@@ -13,12 +13,11 @@ function createPlaylistCards(playlists) {
 
 
     for (let playlist of playlists) {
-
         const newPlaylistCard = generatePlaylistCard(playlist);
 
         container.appendChild(newPlaylistCard);
 
-        const editButton = newPlaylistCard.querySelector('edit-button');
+        // const editButton = newPlaylistCard.querySelector('edit-button');
 
         
         // like and delete feature
@@ -122,6 +121,38 @@ function createPlaylistCards(playlists) {
     });
     
 
+}
+
+function likePlaylist() {
+    let liked = false;
+
+        newPlaylistCard.addEventListener('click', (event) => {
+            if(event.target.closest('.like-count img')) {
+                const likeImage = event.target.parentNode.querySelector('img');
+                if(!liked){
+                    playlist.likeCount += 1;
+                    likeImage.src = './assets/img/red-heart.png';
+                } else if (playlist.likeCount > 0) {
+                    playlist.likeCount -= 1;
+                    likeImage.src = './assets/img/favicon.png'; 
+                }             
+                const likeDisplay = event.target.parentNode.querySelector('p');
+                likeDisplay.textContent = playlist.likeCount;
+                liked = !liked;
+            } else if(event.target.closest('.trash img')) {
+                const trashIcon = event.target.closest('.trash');
+                const playlistCard = trashIcon.closest('.playlist-card');
+                playlistCard.remove();
+
+                const playIndex = playlists.findIndex(p => playlist_name === playlist.playlist_name);
+                playlists.splice(playlistIndex, 1);
+
+                createPlaylistCards(playlists);
+            } else {
+                updateSongBanner(playlist);
+                updateSongs(playlist);
+            }
+        });
 }
 
 //  open edit modal
@@ -296,19 +327,23 @@ function searchPlaylist(playlists) {
     const searchBar = document.querySelector('.search-bar');
     searchBar.addEventListener('input', (event) => {
 
-        const allCards = document.querySelectorAll('.playlist-cards');
-
+        const allCards = document.querySelectorAll('.playlist-card');
         for(let card of allCards) {
-            const cardTitle = card.querySelector('h3').textContent.toLowerCase();
-            const cardCreator = card.querySelector('p').textContent.toLowerCase();
+            const cardTitleElement = card.querySelector('h3')
+            const cardCreatorElement = card.querySelector('p');
             const searchTerm = event.target.value.toLowerCase();
-            console.log(cardTitle);
-            console.log(cardCreator);
-            console.log(searchTerm);
-    
-            if(!(cardTitle.includes(searchTerm)) && !(cardCreator.includes(searchTerm))) {
-                card.style.display = 'none';
-            } 
+
+            if (cardTitleElement && cardCreatorElement) {
+                const cardTitle = card.querySelector('h3').textContent.toLowerCase();
+                const cardCreator = card.querySelector('p').textContent.toLowerCase();
+
+                if(!(cardTitle.includes(searchTerm)) && !(cardCreator.includes(searchTerm))) {
+                    card.style.display = 'none';
+                } 
+            }
+
+
+
         }
 
 
