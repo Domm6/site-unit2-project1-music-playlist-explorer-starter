@@ -193,8 +193,8 @@ function updateSongBanner (playlist) {
     </div>`;
 
     // adds close functionality to the card
-    const closeModalIcon = document.querySelector('.modal-banner-close img'); // Ensure this selector matches the close icon in your modal
-    closeModalIcon.onclick = function(event) { // Add event listener for closing the modal
+    const closeModalIcon = document.querySelector('.modal-banner-close img'); 
+    closeModalIcon.onclick = function(event) {
         modal.style.display = "none";
     };
     modal.style.display = "block";
