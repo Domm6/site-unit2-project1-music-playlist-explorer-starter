@@ -58,20 +58,21 @@ Deployed Application (N/A): [Music Playlist Explorer Deployed Site](ADD_LINK_HER
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+I think the lectures did a good job giving me the baseline knowledge of the new technologies and how to use them. For the labs, I feel like they were helpful, but they could have been better if we had more time to complete them, as the time allotted felt very short. Additionally, maybe using the labs instead as examples that we cna reference might be a better idea. 
+
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time, I would have added additional features such as as the sorting as well as editing individual playlists. Also, I would have went back and restructured my code so that it is more efficient and easier to edit in the future, providing for better longevity as well as reusability.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+I really enjoyed my projecte demo and am proud of what I was able to accomplish. Since I have been working and testing it throughout the entire time I was creating the application, I already knew what to expect and wasn't really suprised by anything. When looking at peers demos, I liked the UI that a lot of them implamented and would love to include some unique visual features next time such as gradients.
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+N/A
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+I want to give a shoutout to Boris as well as Bryan for helping me fix some of the bugs that arised!!!
