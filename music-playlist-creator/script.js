@@ -17,7 +17,7 @@ function createPlaylistCards(playlists) {
 
         container.appendChild(newPlaylistCard);
 
-        // const editButton = newPlaylistCard.querySelector('edit-button');
+        const editButton = newPlaylistCard.querySelector('edit-button');
 
         
         // like and delete feature
@@ -118,7 +118,11 @@ function createPlaylistCards(playlists) {
             }
         });
 
+        editModal.style.display = 'hidden';
+
     });
+
+
     
 
 }
@@ -164,13 +168,17 @@ function openEditModal() {
     // allow open modal on new playlist cards
         editButton.addEventListener('click', (event) => {
             if (event.target.closest('.edit-button')) {
-                modal.style.display = 'block';
+                editModal.style.display = 'block';
             }
         });
 
+    // close edit modal
+    window.addEventListener('click', (event) => {
+        if (event.target == editModal) {
+            editModal.style.display = 'none';
+        }
+    });
 
-    // grab modal and content
-    const editModal = document.querySelector('edit-modal-content');
 
 }
 
@@ -236,6 +244,7 @@ function updateSongs(playlist) {
 
 // add playlist
 
+// get info from form
 function getFormInfo () {
             // add new playlist
             const form = document.querySelector('#playlist-form');
@@ -276,13 +285,12 @@ function getFormInfo () {
                     
 }
 
-
+// close modal by clicking x
 close_modal.onclick = function(event) {
     modal.style.display = "none";
 };
 
-
-// supposed to close model when click outside , need to implament
+// close modal by clicking outside
 window.onclick = function(event) {
     if (event.target ==  modal) {
         modal.style.display = "none";
@@ -348,4 +356,4 @@ function searchPlaylist(playlists) {
 
 
 createPlaylistCards(data.playlists);
-// openEditModal();
+openEditModal();
