@@ -192,6 +192,11 @@ function updateSongBanner (playlist) {
         <img src="assets/img/close.png" alt="" width="25">
     </div>`;
 
+    // adds close functionality to the card
+    const closeModalIcon = document.querySelector('.modal-banner-close img'); // Ensure this selector matches the close icon in your modal
+    closeModalIcon.onclick = function(event) { // Add event listener for closing the modal
+        modal.style.display = "none";
+    };
     modal.style.display = "block";
 
 }
@@ -235,8 +240,6 @@ function getFormInfo () {
             // add new playlist
             const form = document.querySelector('#playlist-form');
 
-            // form.addEventListener('submit', (event) => {
-                // event.preventDefault();
                 const playlistName = document.querySelector('#playlist-name').value;
                 const playlistCreator = document.querySelector('#form-creator').value;
     
@@ -271,19 +274,13 @@ function getFormInfo () {
 
                 return playlist;
                     
-            // });
 }
 
 
-// closes model by clicking x
 close_modal.onclick = function(event) {
     modal.style.display = "none";
-    console.log('CLOSINGGGG')
 };
 
-// close_modal.addEventListener('click', () => {
-//     modal.style.display = "none";
-// })
 
 // supposed to close model when click outside , need to implament
 window.onclick = function(event) {
@@ -345,7 +342,6 @@ function searchPlaylist(playlists) {
         });
     });
 }
-
 
 
 
