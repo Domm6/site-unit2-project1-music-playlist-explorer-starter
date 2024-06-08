@@ -123,14 +123,6 @@ function createPlaylistCards(playlists) {
             }
         });
 
-        // shuffle featuer for new playlists
-        const shuffleButton = document.querySelector(".shuffle-btn");
-        if (shuffleButton) {
-            shuffleButton.addEventListener('click', () => {
-                formInfo.songs.sort(() => Math.random() - 0.5);
-                updateSongs(formInfo);
-            });
-        }
 
         // close modal
         editModal.style.display = 'none';
