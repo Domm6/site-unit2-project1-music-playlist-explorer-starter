@@ -2,9 +2,9 @@
 
 Submitted by: **Dominic Parker**
 
-Estimated time spent: **#** 40
+Estimated time spent: 40
 
-Deployed Application (optional): [Music Playlist Explorer Deployed Site](ADD_LINK_HERE)
+Deployed Application (N/A): [Music Playlist Explorer Deployed Site](ADD_LINK_HERE)
 
 ### Application Features
 
