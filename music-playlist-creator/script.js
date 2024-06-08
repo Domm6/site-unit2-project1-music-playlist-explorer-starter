@@ -314,43 +314,38 @@ function generatePlaylistCard(playlist) {
 }
 
 function searchPlaylist(playlists) {
-    // grab the search element
-    // add event listener on the search
+    //search element
+    const searchBar = document.querySelector('.search-bar input'); // Fixed the selector to target the input element inside the search bar
 
-        // grab all cards elements
-            // grab each title and creator
-
-            // compare to card elemetns (title and creator) to input value 
-                //if not equal hide
-
-
-    const searchBar = document.querySelector('.search-bar');
+    //event lister for search
     searchBar.addEventListener('input', (event) => {
-
+        const searchTerm = event.target.value.toLowerCase();
         const allCards = document.querySelectorAll('.playlist-card');
-        for(let card of allCards) {
-            const cardTitleElement = card.querySelector('h3')
+
+        //go through all playlist cards
+        allCards.forEach(card => {
+            const cardTitleElement = card.querySelector('h3');
             const cardCreatorElement = card.querySelector('p');
-            const searchTerm = event.target.value.toLowerCase();
 
-            if (cardTitleElement && cardCreatorElement) {
-                const cardTitle = card.querySelector('h3').textContent.toLowerCase();
-                const cardCreator = card.querySelector('p').textContent.toLowerCase();
+            let cardTitle = '';
+            let cardCreator = '';
 
-                if(!(cardTitle.includes(searchTerm)) && !(cardCreator.includes(searchTerm))) {
-                    card.style.display = 'none';
-                } 
+            //variables correect
+            if(cardTitleElement && cardCreatorElement) {
+                cardTitle = cardTitleElement.textContent.toLowerCase(); // Changed to assignment without redeclaration
+                cardCreator = cardCreatorElement.textContent.toLowerCase(); // Changed to assignment without redeclaration
             }
 
-
-
-        }
-
-
-
+            //compare to card elements (title and creator) to input value and hide if not equal
+            if (cardTitle.includes(searchTerm) || cardCreator.includes(searchTerm)) {
+                card.style.display = 'block'; // Show the card if it matches
+            } else {
+                card.style.display = 'none'; // Hide the card if it doesn't match
+            }
+        });
     });
-
 }
+
 
 
 
